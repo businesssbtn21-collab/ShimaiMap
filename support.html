@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="iPhoneアプリ「しまいMap」のサポートページ。使い方、よくある質問、お問い合わせ先。">
+<title>しまいMap サポート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#f8f9fc;
+    --surface:#ffffff;
+    --border:#e3e5ee;
+    --ink:#14162b;
+    --muted:#666b85;
+    --accent:#4f46e5;
+    --accent-soft:#eef0fe;
+    --warn:#b45309;
+    --warn-soft:#fff8ed;
+    --warn-border:#f2d5a8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0a0b12;
+      --surface:#141628;
+      --border:#2a2d42;
+      --ink:#eef0f8;
+      --muted:#a2a7c0;
+      --accent:#8b92f7;
+      --accent-soft:#1a1c38;
+    --warn:#f0a35e;
+    --warn-soft:#2a1d0f;
+    --warn-border:#6b4520;
+      --warn:#f0a35e;
+      --warn-soft:#2a1d0f;
+      --warn-border:#6b4520;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0a0b12;
+    --surface:#141628;
+    --border:#2a2d42;
+    --ink:#eef0f8;
+    --muted:#a2a7c0;
+    --accent:#8b92f7;
+    --accent-soft:#1a1c38;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+    line-height:1.85;
+    padding:0 20px;
+    padding-block:56px;
+    margin:0;
+  }
+  .wrap{max-width:680px;margin:0 auto;}
+
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:36px;}
+  .mark{
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    font-weight:900;font-size:16px;color:#fff;line-height:1;
+    width:32px;height:32px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#6366f1,#4338ca);
+  }
+  .wordmark{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:16px;letter-spacing:.02em;}
+
+  h1{
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    font-weight:900;
+    font-size:clamp(26px,5vw,34px);
+    line-height:1.35;
+    margin:0 0 6px;
+    text-wrap:balance;
+  }
+  .sub{color:var(--muted);font-size:15px;margin:0 0 40px;max-width:46ch;}
+  .updated{color:var(--muted);font-size:13px;margin:0 0 40px;font-variant-numeric:tabular-nums;}
+
+  .lede{
+    background:var(--accent-soft);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px 20px;
+    font-size:15px;
+    margin-bottom:40px;
+  }
+  .lede b{color:var(--accent);}
+
+  .contact{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+    background:var(--accent-soft);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:22px 24px;
+    margin-bottom:44px;
+  }
+  .contact .label{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.03em;margin-bottom:4px;}
+  .contact .email{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:19px;}
+  .contact .email a{color:var(--ink);text-decoration:none;}
+  .contact .email a:hover{color:var(--accent);}
+  .btn{
+    display:inline-block;background:var(--accent);color:#fff;
+    font-weight:700;font-size:14px;padding:10px 18px;
+    border-radius:999px;text-decoration:none;white-space:nowrap;
+  }
+
+  section{margin-bottom:34px;}
+  h2{
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    font-weight:700;font-size:18px;margin:0 0 12px;
+    padding-bottom:8px;border-bottom:1px solid var(--border);
+  }
+  p{margin:0 0 12px;font-size:15px;}
+  ul{margin:0 0 12px;padding-left:1.3em;font-size:15px;}
+  li{margin-bottom:6px;}
+
+  .qa{border-top:1px solid var(--border);}
+  .qa > div{padding:16px 0;border-bottom:1px solid var(--border);}
+  .q{font-weight:700;font-size:15px;margin:0 0 6px;display:flex;gap:8px;}
+  .q .idx{color:var(--accent);font-variant-numeric:tabular-nums;}
+  .a{font-size:14px;margin:0;padding-left:24px;}
+
+  .steps{list-style:none;padding:0;margin:0;counter-reset:step;}
+  .steps li{counter-increment:step;position:relative;padding:0 0 0 34px;margin-bottom:14px;font-size:14px;}
+  .steps li::before{
+    content:counter(step);
+    position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;
+    background:var(--surface);border:1px solid var(--border);
+    color:var(--accent);font-weight:700;font-size:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  table{width:100%;border-collapse:collapse;font-size:14px;margin:0 0 12px;}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+  th{color:var(--muted);font-weight:700;font-size:12px;white-space:nowrap;}
+  .tag{
+    display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;
+    background:var(--surface);border:1px solid var(--border);color:var(--muted);
+    margin-right:6px;letter-spacing:.02em;
+  }
+
+  a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  footer{
+    margin-top:56px;padding-top:24px;border-top:1px solid var(--border);
+    color:var(--muted);font-size:13px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+  footer a{color:var(--muted);text-decoration:underline;text-underline-offset:2px;}
+
+  @media (max-width:480px){
+    .contact{flex-direction:column;align-items:flex-start;}
+    table, thead, tbody, tr, th, td{display:block;}
+    thead{display:none;}
+    tr{border-bottom:1px solid var(--border);padding:10px 0;}
+    td{border:none;padding:2px 0;}
+    td::before{content:attr(data-label);display:block;font-size:11px;color:var(--muted);font-weight:700;margin-bottom:2px;}
+  }
+
+  .notice{
+    display:flex;gap:14px;align-items:flex-start;
+    background:var(--warn-soft);
+    border:1px solid var(--warn-border);
+    border-left:4px solid var(--warn);
+    border-radius:12px;
+    padding:18px 20px;
+    margin:0 0 40px;
+  }
+  .notice .ico{
+    flex:none;width:24px;height:24px;border-radius:50%;
+    background:var(--warn);color:var(--warn-soft);
+    font-weight:900;font-size:15px;line-height:24px;text-align:center;
+    font-family:"Zen Kaku Gothic New",sans-serif;
+  }
+  .notice .txt{flex:1;}
+  .notice h3{
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    font-weight:700;font-size:15px;margin:0 0 5px;color:var(--warn);
+  }
+  .notice p{font-size:14px;margin:0 0 6px;}
+  .notice p:last-child{margin-bottom:0;}
+  .notice strong{font-weight:700;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <span class="mark">収</span>
+    <span class="wordmark">しまいMap</span>
+  </div>
+
+  <h1>サポート</h1>
+  <p class="sub">家の中のどこに何をしまったかを、立体の間取り図で見えるようにするアプリです。困ったときは、ここから連絡してください。</p>
+
+  <div class="contact">
+    <div>
+      <div class="label">お問い合わせ</div>
+      <div class="email"><a href="mailto:businesssbtn21@gmail.com">businesssbtn21@gmail.com</a></div>
+    </div>
+    <a class="btn" href="mailto:businesssbtn21@gmail.com?subject=%E3%81%97%E3%81%BE%E3%81%84Map%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">メールを送る</a>
+  </div>
+
+  <div class="notice">
+    <span class="ico">!</span>
+    <div class="txt">
+      <h3>データのバックアップはありません</h3>
+      <p>登録した内容は<strong>このiPhoneの中だけ</strong>に保存されます。サーバーには一切送られません。そのため、<strong>アプリを削除すると、作った間取りも登録したモノもすべて消えます。元に戻すことはできません。</strong></p>
+      <p>機種変更のときは、新しい端末で作り直しになります。大切な記録は、書き出したメモや写真でも控えを残しておくことをおすすめします。</p>
+    </div>
+  </div>
+
+  <section>
+    <h2>基本の使い方</h2>
+    <ol class="steps">
+      <li>部屋を追加する。名前(リビング・寝室など)と広さを決めると、間取り図に部屋が置かれます。</li>
+      <li>家具や収納を置く。下のパレットからカテゴリ(リビング/キッチン/寝室/水まわり/玄関/収納)を選び、置きたいものをタップします。</li>
+      <li>しまったモノを登録する。収納先を開いて、中に入れたモノの名前を足していきます。</li>
+      <li>探すときは検索する。モノの名前を入れると、それがある収納先がマップ上で示されます。</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>よくある質問</h2>
+    <div class="qa">
+      <div>
+        <p class="q"><span class="idx">Q.</span>視点を回したい・上から見たい</p>
+        <p class="a">何もない場所を<b>1本指</b>でなぞると、家のまわりをぐるっと回り込みます。左右になぞると回転、上下になぞると見下ろす角度が変わります(下になぞると真上からの間取り図に近づきます)。<b>2本指</b>でなぞると全体が平行移動、ピンチで拡大縮小です。左下のコンパスをタップすると最初の視点に戻ります。</p>
+      </div>
+      <div>
+        <p class="q"><span class="idx">Q.</span>家具の大きさを変えたい</p>
+        <p class="a">家具を<b>ダブルタップ</b>すると四隅につまみが出ます。つまみをドラッグすると、幅と奥行きを別々に変えられます。もう一度ダブルタップするか、何もない場所をタップすると元に戻ります。</p>
+      </div>
+      <div>
+        <p class="q"><span class="idx">Q.</span>家具の向きを変えたい</p>
+        <p class="a">家具を選ぶと手前の角に回転ボタンが出ます。押すたびに90度ずつ回ります。向きを変えても、家具は壁の内側に収まるよう自動で調整されます。</p>
+      </div>
+      <div>
+        <p class="q"><span class="idx">Q.</span>棚の段数や引き出しの数を変えたい</p>
+        <p class="a">棚を開くと正面図つきの設定画面が出ます。段数・列数を変えられるほか、「段ごとに変える」を押すと<b>下は大きな引き出しが1つ、上は3つに仕切られた棚</b>のような不規則な棚も作れます。図を見ながら決められます。</p>
+      </div>
+      <div>
+        <p class="q"><span class="idx">Q.</span>窓やドアの位置を変えたい</p>
+        <p class="a">壁の窓・ドアをタップすると、位置と幅を変えるつまみが出ます。窓・室内ドア・玄関ドア・開口(アーチ)の切り替えもここでできます。手前にきて見えなくなっている壁は自動的に切り落とされるので、反対側に回り込んでから操作してください。</p>
+      </div>
+      <div>
+        <p class="q"><span class="idx">Q.</span>人に見られたくない収納先がある</p>
+        <p class="a">収納先ごとに「非公開」に設定できます。非公開にした収納先を開くときは、Face IDまたはパスコードでの認証が必要になります。</p>
+      </div>
+      <div>
+        <p class="q"><span class="idx">Q.</span>登録したデータはどこに保存されますか</p>
+        <p class="a">すべてお使いのiPhoneの中だけに保存されます。アカウント登録は不要で、通信も行いません。クラウドにも当方のサーバーにも控えは残らないため、<strong>アプリを削除すると登録した内容もすべて消え、元に戻すことはできません。</strong>機種変更やアプリの入れ直しをされる前に、必ずご確認ください。</p>
+      </div>
+      <div>
+        <p class="q"><span class="idx">Q.</span>部屋や家具を消したい</p>
+        <p class="a">消したい部屋や家具を開き、右上の「…」メニューから削除を選んでください。部屋を消すと、その中に置いた家具と登録したモノも一緒に消えます。</p>
+      </div>
+      <div>
+        <p class="q"><span class="idx">Q.</span>最初から入っているリビングや寝室は消せますか</p>
+        <p class="a">はい。初回に入っているのは使い方が分かるようにするためのサンプルです。不要であればそのまま削除して、ご自宅の間取りを作ってください。</p>
+      </div>
+      <div>
+        <p class="q"><span class="idx">Q.</span>アップデート後、起動時に画面が数秒白くなる</p>
+        <p class="a">保存形式の更新のため、アップデート直後の初回起動だけ少し時間がかかることがあります。2回目以降は通常どおり起動します。長時間続く場合はご連絡ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>不具合のご報告</h2>
+    <p>お手数ですが、次の3点を書いてメールをいただけると原因を特定しやすくなります。</p>
+    <ul>
+      <li>iPhoneの機種とiOSのバージョン</li>
+      <li>アプリのバージョン(設定画面の一番下に表示されます)</li>
+      <li>どの操作をしたときに、何が起きたか</li>
+    </ul>
+    <p>通常2〜3日以内に返信します。</p>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 しまいMap</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </footer>
+</div>
+</body>
+</html>
